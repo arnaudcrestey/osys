@@ -30,12 +30,35 @@ Pistes possibles
 
 Vous pouvez poursuivre votre cheminement à votre rythme, revenir plus tard si vous ressentez le besoin de faire à nouveau le point, ou consulter les ressources proposées pour mieux comprendre certains repères.`;
 
+async function sendOsysNotification(
+  totalScore: number,
+  resultTitle: string,
+  dominantSignals: string[]
+) {
+  try {
+    await fetch("/api/osys/notification", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        totalScore,
+        resultTitle,
+        dominantSignals
+      })
+    });
+  } catch {
+    // L'échec d'envoi du mail ne doit jamais bloquer l'utilisateur.
+  }
+}
+
 export function QuestionnaireFlow() {
   const [ordered, setOrdered] = useState<Question[]>([]);
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<StoredAnswers>({});
   const [aiAnalysis, setAiAnalysis] = useState("");
   const [analysisVisible, setAnalysisVisible] = useState(false);
+  const [notificationSent, setNotificationSent] = useState(false);
 
   useEffect(() => {
     const randomized = shuffle(questions)
@@ -88,6 +111,11 @@ export function QuestionnaireFlow() {
       setAnalysisVisible(false);
       setAiAnalysis("");
 
+      if (!notificationSent) {
+        await sendOsysNotification(score, result.title, signals);
+        setNotificationSent(true);
+      }
+
       const delay = new Promise((resolve) => {
         window.setTimeout(resolve, ANALYSIS_DELAY);
       });
@@ -136,13 +164,22 @@ export function QuestionnaireFlow() {
     return () => {
       cancelled = true;
     };
-  }, [complete, result.title, score, analysis, signals, actions]);
+  }, [
+    complete,
+    result.title,
+    score,
+    analysis,
+    signals,
+    actions,
+    notificationSent
+  ]);
 
   function resetQuestionnaire() {
     setAnswers({});
     setIndex(0);
     setAiAnalysis("");
     setAnalysisVisible(false);
+    setNotificationSent(false);
     window.localStorage.removeItem("osys-questionnaire");
 
     const randomized = shuffle(questions)
@@ -175,7 +212,8 @@ export function QuestionnaireFlow() {
 
         <p className="mt-5 max-w-2xl text-base leading-8 text-slate-700">
           Chaque situation est unique. OSYS prend quelques instants pour
-          préparer une lecture personnalisée à partir des repères qui ressortent de vos réponses.
+          préparer une lecture personnalisée à partir des repères qui ressortent
+          de vos réponses.
         </p>
 
         <div className="mt-10 rounded-3xl border border-osys-line bg-white/55 p-6">
@@ -263,16 +301,16 @@ export function QuestionnaireFlow() {
           </p>
 
           <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
-            Si certains éléments vous interpellent, les ressources proposées
-            par OSYS peuvent constituer un premier point d&apos;appui. Vous
-            pouvez également, si vous en ressentez le besoin, échanger avec un
+            Si certains éléments vous interpellent, les ressources proposées par
+            OSYS peuvent constituer un premier point d&apos;appui. Vous pouvez
+            également, si vous en ressentez le besoin, échanger avec un
             professionnel ou une structure spécialisée capable de vous
             accompagner.
           </p>
 
           <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
-            L&apos;essentiel est de rester à l&apos;écoute de ce qui vous
-            paraît juste pour vous, au moment qui vous semble le plus approprié.
+            L&apos;essentiel est de rester à l&apos;écoute de ce qui vous paraît
+            juste pour vous, au moment qui vous semble le plus approprié.
           </p>
         </div>
 
@@ -300,17 +338,17 @@ export function QuestionnaireFlow() {
 
   return (
     <>
-      
-
       <p className="eyebrow">Faire le point</p>
 
-<h1 className="page-title mt-5">
-  Mieux comprendre ce que vous vivez.
-</h1>
+      <h1 className="page-title mt-5">
+        Mieux comprendre ce que vous vivez.
+      </h1>
 
-<p className="body-large mt-5 max-w-2xl">
-  Répondez aux questions qui suivent à votre rythme. Cette lecture a pour objectif de vous aider à prendre du recul et à identifier certains repères.
-</p>
+      <p className="body-large mt-5 max-w-2xl">
+        Répondez aux questions qui suivent à votre rythme. Cette lecture a pour
+        objectif de vous aider à prendre du recul et à identifier certains
+        repères.
+      </p>
 
       <div className="premium-card mt-9 p-6 sm:p-8">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

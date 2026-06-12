@@ -47,7 +47,7 @@ export default function ConfidentialitePage() {
               <p className="mt-4 text-sm leading-7 text-white/90">
                 OSYS ne demande pas la création de compte, ne collecte pas
                 l'identité des utilisateurs et ne conserve pas les réponses
-                apportées au questionnaire.
+                détaillées apportées au questionnaire.
               </p>
             </div>
 
@@ -56,14 +56,14 @@ export default function ConfidentialitePage() {
             </h2>
 
             <p>
-              OSYS ne demande pas la création de compte et ne collecte pas les
-              informations personnelles saisies par les utilisateurs dans le
-              cadre du questionnaire.
+              OSYS ne demande pas la création de compte et ne collecte pas
+              l'identité, les coordonnées ou les informations personnelles des
+              utilisateurs dans le cadre du questionnaire.
             </p>
 
             <p>
               Les réponses fournies sont utilisées uniquement pour générer le
-              résultat affiché à l'écran et ne sont pas conservées par
+              résultat affiché à l'écran. Elles ne sont pas conservées par
               l'association OSYS.
             </p>
 
@@ -72,10 +72,32 @@ export default function ConfidentialitePage() {
               transmise ou exploitée à des fins commerciales.
             </p>
 
+            <h2 className="text-2xl font-semibold text-slate-900">
+              Suivi statistique anonyme
+            </h2>
+
             <p>
-              Les éventuelles données techniques nécessaires au fonctionnement
-              du site sont traitées dans le respect de la réglementation
-              applicable.
+              Afin de suivre l'utilité réelle du site et son évolution dans le
+              temps, OSYS peut transmettre à son responsable une notification
+              lorsqu'un questionnaire est complété.
+            </p>
+
+            <p>
+              Cette notification peut indiquer la date et l'heure du
+              questionnaire, le score global, le niveau de résultat obtenu et
+              les grandes catégories de signaux repérées.
+            </p>
+
+            <p>
+              Cette notification ne contient ni nom, ni prénom, ni adresse
+              e-mail, ni numéro de téléphone, ni adresse IP, ni réponse détaillée
+              question par question.
+            </p>
+
+            <p>
+              Ce suivi a uniquement une finalité statistique et permet d'évaluer
+              l'impact général du site, sans identifier les personnes qui
+              l'utilisent.
             </p>
 
             <h2 className="text-2xl font-semibold text-slate-900">
@@ -117,14 +139,15 @@ export default function ConfidentialitePage() {
               </p>
 
               <p className="mt-4 text-2xl font-semibold tracking-tight">
-                Les réponses au questionnaire ne sont pas enregistrées par OSYS.
+                Les réponses détaillées au questionnaire ne sont pas
+                enregistrées par OSYS.
               </p>
 
               <p className="mt-4 text-sm leading-7 text-white/90">
                 Elles servent uniquement à afficher une lecture immédiate à
-                l'écran. En cas de danger immédiat ou de besoin
-                d'accompagnement, consultez la page Ressources ou contactez les
-                services compétents.
+                l'écran. Seules des informations statistiques anonymes peuvent
+                être transmises au responsable du site afin de mesurer son
+                utilité générale.
               </p>
             </div>
           </div>

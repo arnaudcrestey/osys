@@ -25,7 +25,9 @@ export default function HomePage() {
 </p>
 
 <p className="mx-auto mt-3 max-w-2xl text-base leading-8 text-slate-600">
-  Et parfois, de mieux comprendre ce que l&apos;on vit.
+  Et parfois, de mieux comprendre
+  <br className="sm:hidden" />
+  ce que l&apos;on vit.
 </p>
 
 <div className="mx-auto mt-7 grid max-w-3xl gap-3 text-sm text-slate-600 sm:grid-cols-4">

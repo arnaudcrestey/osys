@@ -10,29 +10,39 @@ export default function HomePage() {
 
       <UrgencyBand />
 
-      <section className="page-shell py-14 sm:py-16">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[1.35rem] font-medium leading-relaxed text-osys-ink sm:text-[1.6rem]">
-            Faire le point peut aider
-            <br />à mieux comprendre ce que vous vivez.
-          </p>
+      <section className="page-shell py-14 sm:py-20">
+  <div className="mx-auto max-w-4xl rounded-[2rem] border border-osys-line bg-white/75 px-6 py-10 text-center shadow-[0_24px_70px_rgba(31,41,55,0.08)] sm:px-12 sm:py-14">
+    <p className="eyebrow">Analyse personnalisée</p>
 
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-600">
-            En quelques minutes, répondez à quelques questions et obtenez une
-            lecture personnalisée des repères qui ressortent de votre situation.
-          </p>
+    <h2 className="mt-5 font-display text-3xl font-medium leading-tight text-osys-ink sm:text-5xl">
+      Faire le point peut aider
+      <br />à mieux comprendre ce que vous vivez.
+    </h2>
 
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-500">
-            Sans création de compte. Sans conservation des réponses détaillées.
-          </p>
+    <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600">
+      En quelques minutes, répondez à quelques questions et obtenez une lecture
+      personnalisée des repères qui ressortent de votre situation.
+    </p>
 
-          <div className="mt-8">
-            <ButtonLink href="/questionnaire" showArrow>
-              Faire le point maintenant
-            </ButtonLink>
-          </div>
-        </div>
-      </section>
+    <div className="mx-auto mt-7 grid max-w-2xl gap-3 text-sm text-slate-600 sm:grid-cols-3">
+      <div className="rounded-2xl bg-osys-surface px-4 py-3">
+        Gratuit
+      </div>
+      <div className="rounded-2xl bg-osys-surface px-4 py-3">
+        Sans compte
+      </div>
+      <div className="rounded-2xl bg-osys-surface px-4 py-3">
+        Réponses non conservées
+      </div>
+    </div>
+
+    <div className="mt-8">
+      <ButtonLink href="/questionnaire" showArrow>
+        Faire le point maintenant
+      </ButtonLink>
+    </div>
+  </div>
+</section>
     </AppShell>
   );
 }

@@ -21,7 +21,11 @@ export default function HomePage() {
 <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600">
   Prendre quelques minutes pour répondre à quelques questions
   peut parfois permettre de regarder une situation avec un peu plus
-  de recul et de mieux comprendre ce que l&apos;on vit.
+  de recul.
+</p>
+
+<p className="mx-auto mt-3 max-w-2xl text-base leading-8 text-slate-600">
+  Et parfois, de mieux comprendre ce que l&apos;on vit.
 </p>
 
 <div className="mx-auto mt-7 grid max-w-3xl gap-3 text-sm text-slate-600 sm:grid-cols-4">

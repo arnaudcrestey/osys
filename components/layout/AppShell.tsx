@@ -35,7 +35,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     <img
       src="/images/signature-ac.png"
       alt="Arnaud Crestey"
-      className="h-auto w-[160px] opacity-95 transition hover:opacity-100"
+      className="h-auto w-[120px] opacity-95 transition hover:opacity-100"
     />
   </a>
 </div>

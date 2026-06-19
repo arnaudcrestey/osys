@@ -25,25 +25,20 @@ export function AppShell({ children }: { children: ReactNode }) {
 
             {/* Signature Arnaud Crestey */}
             <div className="flex justify-center">
-              <a
-  href="https://arnaudcrestey.com"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="group inline-flex flex-col items-center text-center transition"
-  aria-label="Arnaud Crestey"
->
-  <span className="font-signature text-[1.8rem] leading-none tracking-[-0.08em] text-white/90">
-    AC
-  </span>
-
-  <span className="mt-1 text-[0.66rem] leading-none tracking-wide text-white/80">
-    arnaudcrestey.com
-  </span>
-
-  <div className="mt-3 w-16 border-t border-white/60" />
-</a>
-            </div>
-
+  <a
+    href="https://arnaudcrestey.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="transition duration-300 hover:scale-105"
+    aria-label="Arnaud Crestey"
+  >
+    <img
+      src="/images/signature-ac.png"
+      alt="Arnaud Crestey"
+      className="h-auto w-[160px] opacity-95 transition hover:opacity-100"
+    />
+  </a>
+</div>
             {/* Navigation principale */}
             <nav
               className="flex flex-wrap items-center justify-center gap-6 text-sm text-white/90 md:justify-start"

@@ -116,7 +116,7 @@ export const questions: Question[] = [
   {
     id: "isolement-1",
     category: "Isolement",
-    text: "Vos relations avec vos proches sont-elles parfois compliquées par la relation ?",
+    text: "Votre relation avec votre partenaire complique-t-elle parfois vos relations avec vos proches ?",
     answers: sharedAnswers
   },
   {
